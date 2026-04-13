@@ -24,12 +24,23 @@
 
 1. `requirement.md`：需求定义与验收标准
 2. `design.md`：执行方案与 Task List
-3. `plan_review.md`：计划评审意见 + 修订回应
+3. `plan_review.md`：计划评审文档（结构见下方说明）
 4. `execution.md`：执行记录与 Task 状态
 5. `acceptance.md`：验收过程与结论
 6. `acceptance_feedback.md`：验收不通过意见
 7. `handoff.md`：跨会话接手说明
 8. `meta.json`：元数据与当前状态
+
+## plan_review.md 结构说明
+
+该文档采用追加写入模式，包含以下区域：
+
+1. **文档头部**：基本信息、版本历史、当前状态
+2. **评审记录区**：存储所有评审记录（初次评审、复评）
+3. **修订回应区**：存储对评审意见的回应
+4. **验收失败改进区**：存储验收失败后的改进映射
+
+详细结构参考 `templates.md` 中的"plan_review.md 文档结构"模板。
 
 ## 新建需求时必须创建
 

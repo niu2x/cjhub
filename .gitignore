@@ -8,3 +8,7 @@ __pycache__/
 
 # Node
 node_modules/
+
+.agents
+
+skills-lock.json

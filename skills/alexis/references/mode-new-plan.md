@@ -38,12 +38,14 @@
 
 ## B1. 评审后修订分支
 
-若已有 `plan_review.md`：
+若已有 `plan_review.md` 且最近有评审记录：
 
 1. 必读 `requirement.md` `design.md` `plan_review.md`。
 2. 对评审意见逐条回应（采纳/不采纳 + 理由）。
-3. 回应结果必须追加写入 `plan_review.md`。
-4. 输出修订后的完整方案与新版 Task List。
+3. **必须使用 `templates.md` 中的"修订回应模板"格式输出**。
+4. 回应结果追加写入 `plan_review.md` 的"修订回应记录"区域。
+5. 更新版本历史表和文档头部的"当前状态"。
+6. 输出修订后的完整方案与新版 Task List。
 
 ## B2. 验收失败重规划分支
 
@@ -51,8 +53,10 @@
 
 1. 必读 `requirement.md` `design.md` `acceptance_feedback.md`。
 2. 将每条验收不通过意见映射到计划改进项。
-3. 在 `design.md` 写入“验收失败改进映射”。
-4. 明确改进对应到哪些 Task。
+3. **必须使用 `templates.md` 中的"验收失败改进映射模板"格式输出**。
+4. 映射结果追加写入 `plan_review.md` 的"验收失败改进映射"区域。
+5. 更新版本历史表和文档头部的"当前状态"。
+6. 明确改进对应到哪些 Task。
 
 ## B3. 方案落库规则
 
