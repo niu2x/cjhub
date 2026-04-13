@@ -1,35 +1,51 @@
-# Agent Skill Repository
+# ✨ Agent Skill 仓库
 
-这个仓库用于集中管理可安装的 Agent Skills。
+> 让 AI Agent 拥有超能力的技能库！
 
-## 目录约定
+---
 
-- `skills/<skill-name>/SKILL.md`：每个技能的入口说明文件。
-- `skills/<skill-name>/`：技能相关的脚本、模板、资源文件。
+## 💫 这是什么？
 
-## 快速开始
+一个集中管理 **Agent Skills** 的仓库，让你的 AI 助手变得更强大、更专业！
 
-1. 创建技能目录与入口文件：
+每个技能都是独立封装的，拿来即用，无需复杂配置 🎯
 
-   ```bash
-   mkdir -p skills/my-skill
-   touch skills/my-skill/SKILL.md
-   ```
+---
 
-2. 编辑 `skills/my-skill/SKILL.md`，写清楚：
-   - 适用场景（何时触发）
-   - 执行步骤（如何做）
-   - 输入/输出约定（返回什么）
+## 🎁 技能清单
 
-3. 根据需要新增脚本或资源文件。
+| 技能 | 一句话介绍 |
+|------|-----------|
+| [tuiqiao](./skills/tuiqiao) | 📋 需求管理神器！从澄清到验收，一条龙搞定复杂任务 |
 
-## 技能列表
+---
 
-| 技能名称 | 简介 |
-|---------|------|
-| tuiqiao | 结构化需求管理技能，通过快捷指令实现需求澄清、计划起草、评审、执行、验收的完整闭环，支持跨会话继续。 |
+## 🚀 快速上手
 
-## 提交建议
+**前置要求：** 已安装 [opencode](https://opencode.ai)
 
-- 一个技能一个目录，目录名使用短横线风格（例如：`db-migration-helper`）。
-- 保持 `SKILL.md` 结构清晰、可执行、可复用。
+**一键安装技能：**
+
+```bash
+npx skills add https://github.com/niu2x/cjhub --skill tuiqiao
+```
+
+**查看已安装技能：**
+
+```bash
+npx skills list
+```
+
+就这么简单！技能会自动加载到你的 Agent 中 🎉
+
+---
+
+## 📝 提交规范
+
+- 一个技能 = 一个目录
+- 目录命名用短横线：`my-skill-name`
+- `SKILL.md` 要清晰、可执行、可复用
+
+---
+
+**💡 好技能值得被更多人使用，欢迎贡献！**
