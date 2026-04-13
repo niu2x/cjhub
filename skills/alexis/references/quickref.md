@@ -8,6 +8,7 @@
 | alexis-plan | 起草/修订方案 | requirement.md, design.md, plan_review.md | design.md, plan_review.md, handoff.md, meta.json | template-plan.md |
 | alexis-review | 评审方案 | requirement.md, design.md, plan_review.md | plan_review.md, meta.json | template-review.md |
 | alexis-apply-step | 执行单Task | design.md, execution.md | execution.md, meta.json | template-apply.md |
+| alexis-apply | 执行所有未完成Task | design.md, execution.md | execution.md, meta.json | template-apply-all.md |
 | alexis-accept | 最终验收 | requirement.md, design.md, execution.md | acceptance.md, meta.json, acceptance_feedback.md | template-accept.md |
 
 ---
@@ -19,6 +20,7 @@ alexis-new <需求简述>
 alexis-plan <需求ID> [补充约束]
 alexis-review <需求ID> [评审重点]
 alexis-apply-step <需求ID> <TaskID>
+alexis-apply <需求ID>
 alexis-accept <需求ID>
 ```
 

@@ -25,10 +25,11 @@ stateDiagram-v2
     需求已确认 --> 方案已确认: alexis-plan
     方案已确认 --> 方案待修订: review不可执行
     方案已确认 --> 方案待优化: review有条件可执行
-    方案已确认 --> 执行中: apply-step
+    方案已确认 --> 执行中: apply-step/apply
     方案待修订 --> 方案已确认: alexis-plan
     方案待优化 --> 方案已确认: alexis-plan
-    方案待优化 --> 执行中: apply-step
+    方案待优化 --> 执行中: apply-step/apply
+    执行中 --> 执行中: alexis-apply
     执行中 --> 验收中: alexis-accept
     验收中 --> 验收通过: 双条件满足
     验收中 --> 验收不通过: 条件不满足
@@ -47,9 +48,12 @@ stateDiagram-v2
 | 方案已确认 | alexis-review | 方案待修订 | 结论=不可执行 |
 | 方案已确认 | alexis-review | 方案待优化 | 结论=有条件可执行 |
 | 方案已确认 | alexis-apply-step | 执行中 | 首次执行Task |
+| 方案已确认 | alexis-apply | 执行中 | 首次执行Task |
 | 方案待修订 | alexis-plan | 方案已确认 | 用户确认修订方案 |
 | 方案待优化 | alexis-plan | 方案已确认 | 用户确认优化方案 |
 | 方案待优化 | alexis-apply-step | 执行中 | 首次执行Task |
+| 方案待优化 | alexis-apply | 执行中 | 首次执行Task |
+| 执行中 | alexis-apply | 执行中 | 继续执行剩余Task |
 | 执行中 | alexis-accept | 验收中 | 开始验收 |
 | 验收中 | alexis-accept | 验收通过 | 双条件满足 |
 | 验收中 | alexis-accept | 验收不通过 | 任一条件不满足 |
