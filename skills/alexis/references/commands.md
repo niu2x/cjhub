@@ -7,6 +7,7 @@
 | `alexis-new <需求简述>` | 新建需求 |
 | `alexis-plan <需求ID> [补充约束]` | 起草/修订方案 |
 | `alexis-review <需求ID> [评审重点]` | 评审方案 |
+| `alexis-auto-plan <需求ID>` | 自动迭代规划评审直到通过 |
 | `alexis-apply-step <需求ID> <TaskID>` | 执行单Task |
 | `alexis-apply <需求ID>` | 执行所有未完成Task |
 | `alexis-accept <需求ID>` | 最终验收 |
@@ -19,6 +20,7 @@
 alexis-new 做一个会员积分到期提醒系统
 alexis-plan RQ-20260412-101500 增加灰度发布约束
 alexis-review RQ-20260412-101500 重点看回滚与监控
+alexis-auto-plan RQ-20260412-101500
 alexis-apply-step RQ-20260412-101500 Task-03
 alexis-apply RQ-20260412-101500
 alexis-accept RQ-20260412-101500
