@@ -1,4 +1,4 @@
-# 输出格式：alexis-apply
+# 输出格式：tuiqiao-apply
 
 ## 执行流程
 
@@ -7,7 +7,7 @@
 3. 筛选状态为 `todo` 的 Task
 4. 按顺序串行执行每个 Task：
    - 使用 Task 工具启动子 Agent
-   - 子 Agent 执行 `alexis-apply-step <需求ID> <TaskID>`
+   - 子 Agent 执行 `tuiqiao-apply-task <需求ID> <TaskID>`
    - 若执行失败，停止流程，后续 Task 标记为 blocked
    - 若执行成功，继续下一个 Task
 5. 全部完成后输出汇总
@@ -17,7 +17,7 @@
 ## 终端输出格式
 
 ```markdown
-## alexis-apply 执行汇总 - YYYY-MM-DD HH:mm
+## tuiqiao-apply 执行汇总 - YYYY-MM-DD HH:mm
 
 ### 需求ID
 RQ-xxx
@@ -36,7 +36,7 @@ RQ-xxx
 - 跳过：L（blocked）
 
 ### 下一步
-建议执行：alexis-accept RQ-xxx
+建议执行：tuiqiao-accept RQ-xxx
 ```
 
 ---
@@ -44,7 +44,7 @@ RQ-xxx
 ## 执行中断时输出
 
 ```markdown
-## alexis-apply 执行中断 - YYYY-MM-DD HH:mm
+## tuiqiao-apply 执行中断 - YYYY-MM-DD HH:mm
 
 ### 需求ID
 RQ-xxx
@@ -60,7 +60,7 @@ RQ-xxx
 Task-02 执行失败：xxx原因
 
 ### 下一步
-修复问题后重新执行：alexis-apply RQ-xxx
+修复问题后重新执行：tuiqiao-apply RQ-xxx
 ```
 
 ---
@@ -72,7 +72,7 @@ Task-02 执行失败：xxx原因
 ```
 Task(
   description="执行 Task-XX",
-  prompt="alexis-apply-step <需求ID> Task-XX",
+  prompt="tuiqiao-apply-task <需求ID> Task-XX",
   subagent_type="general"
 )
 ```

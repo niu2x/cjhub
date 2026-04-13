@@ -1,4 +1,4 @@
-# 输出格式：alexis-new
+# 输出格式：tuiqiao-new
 
 ## 输出到
 
@@ -85,7 +85,7 @@
   "id": "RQ-YYYYMMDD-HHMMSS",
   "name": "<需求名称>",
   "status": "需求澄清中",
-  "path": ".alexis/requirements/RQ-YYYYMMDD-HHMMSS/",
+  "path": ".tuiqiao/requirements/RQ-YYYYMMDD-HHMMSS/",
   "created_at": "YYYY-MM-DD HH:mm"
 }
 ```

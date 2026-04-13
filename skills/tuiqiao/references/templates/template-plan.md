@@ -1,4 +1,4 @@
-# 输出格式：alexis-plan
+# 输出格式：tuiqiao-plan
 
 ## 输出到
 
@@ -49,7 +49,7 @@
 
 ## 修订回应（追加到 plan_review.md）
 
-**触发条件**：已有评审记录，alexis-plan 响应评审意见
+**触发条件**：已有评审记录，tuiqiao-plan 响应评审意见
 
 ```markdown
 ### [回应] #N - YYYY-MM-DD HH:mm
@@ -64,7 +64,7 @@
 - <变更2>
 
 #### 下一步
-建议执行：alexis-review RQ-xxx
+建议执行：tuiqiao-review RQ-xxx
 ```
 
 ---
@@ -85,5 +85,5 @@
 - <Task变更描述>
 
 #### 下一步
-建议执行：alexis-review RQ-xxx
+建议执行：tuiqiao-review RQ-xxx
 ```

@@ -1,4 +1,4 @@
-# 输出格式：alexis-accept
+# 输出格式：tuiqiao-accept
 
 ## 输出到
 
@@ -58,7 +58,7 @@ YYYY-MM-DD HH:mm
 | <项目2> | <证据> | <建议> |
 
 ## 重规划要求
-执行 alexis-plan RQ-xxx 逐条回应并调整Task
+执行 tuiqiao-plan RQ-xxx 逐条回应并调整Task
 ```
 
 ---

@@ -4,9 +4,9 @@
 
 | 路径 | 用途 |
 |------|------|
-| `./.alexis/` | 根目录 |
-| `./.alexis/index.json` | 需求索引 |
-| `./.alexis/requirements/<requirement_id>/` | 单需求目录 |
+| `./.tuiqiao/` | 根目录 |
+| `./.tuiqiao/index.json` | 需求索引 |
+| `./.tuiqiao/requirements/<requirement_id>/` | 单需求目录 |
 
 ## requirement_id 规范
 
@@ -38,7 +38,7 @@
   "id": "RQ-xxx",
   "name": "<需求名称>",
   "status": "<当前状态>",
-  "path": ".alexis/requirements/RQ-xxx/",
+  "path": ".tuiqiao/requirements/RQ-xxx/",
   "created_at": "YYYY-MM-DD HH:mm",
   "updated_at": "YYYY-MM-DD HH:mm",
   "archived_at": "YYYY-MM-DD HH:mm",  // 验收通过时写入
@@ -70,9 +70,9 @@
 
 以下动作必须满足"新会话仅读文档即可执行"：
 
-- `alexis-plan`
-- `alexis-review`
-- `alexis-apply-step`
-- `alexis-accept`
+- `tuiqiao-plan`
+- `tuiqiao-review`
+- `tuiqiao-apply-task`
+- `tuiqiao-accept`
 
 若发现关键信息仅存在对话中，先补文档再继续。

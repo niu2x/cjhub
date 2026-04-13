@@ -1,8 +1,8 @@
 # 模式 C/D：执行步骤与最终验收
 
-## C. alexis-apply-step
+## C. tuiqiao-apply-task
 
-触发：`alexis-apply-step <需求ID> <TaskID>`
+触发：`tuiqiao-apply-task <需求ID> <TaskID>`
 
 只执行一个 Task，不做整包推进。
 
@@ -34,9 +34,9 @@
 
 ---
 
-## D. alexis-accept
+## D. tuiqiao-accept
 
-触发：`alexis-accept <需求ID>`
+触发：`tuiqiao-accept <需求ID>`
 
 ---
 

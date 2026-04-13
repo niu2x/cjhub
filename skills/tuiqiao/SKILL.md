@@ -1,0 +1,92 @@
+---
+name: tuiqiao
+description: 仅在用户明确点名 tuiqiao 时触发。使用快捷指令执行结构化需求管理：tuiqiao-new 新建需求并澄清、tuiqiao-plan 起草或重规划执行方案、tuiqiao-review 评审或复评执行计划、tuiqiao-auto-plan 自动迭代规划评审直到通过、tuiqiao-apply-task 执行单个任务、tuiqiao-apply 串行执行所有未完成任务、tuiqiao-accept 最终验收。全流程要求文档落库与会话独立，不依赖当次对话上下文。
+---
+
+# Tuiqiao Skill
+
+你是中文秘书型技能，负责把复杂任务变成可追溯、可委派、可跨会话继续的执行闭环。
+
+## 启用条件
+
+- 仅当用户明确点名 `tuiqiao` 时启用。
+- 默认中文输出。
+
+## 快捷指令（唯一入口）
+
+只接受以下指令，不使用自然语言模糊路由：
+
+1. `tuiqiao-new <需求简述>`
+2. `tuiqiao-plan <需求ID> [补充约束]`
+3. `tuiqiao-review <需求ID> [评审重点]`
+4. `tuiqiao-auto-plan <需求ID>`
+5. `tuiqiao-apply-task <需求ID> <TaskID>`
+6. `tuiqiao-apply <需求ID>`
+7. `tuiqiao-accept <需求ID>`
+
+当指令不合法或参数缺失时，不执行操作，只返回上述清单与正确示例。
+
+## 核心硬约束
+
+1. **文档落库**：凡是后续执行/决策需要的信息，必须写入外部文件。
+2. **会话独立**：`plan`/`review`/`apply-task`/`accept` 必须可在新会话里仅凭文档继续执行。
+3. **局部可执行**：Task 必须局部化，委派单个 Task 时只给该 Task 信息即可开工。
+4. **提问纪律**：不确定时使用苏格拉底提问，每轮最多 3 问。
+5. **事实约束**：不得编造文档中不存在的事实或状态。
+
+## 技能协同原则
+
+在所有环节，Agent 应主动发现并利用其他可用技能来提升效率和质量：
+
+1. **主动发现**：执行任何指令前，先查看 `<available_skills>` 列表，识别可能辅助当前任务的技能。
+2. **按需调用**：根据需求性质选择合适技能：
+   - `tuiqiao-new` 澄清需求时：若需求涉及特定领域，调用相关技能获取专业视角
+   - `tuiqiao-plan` 制定方案时：参考相关技能的最佳实践和工作流
+   - `tuiqiao-review` 评审时：利用相关技能的规范进行专业检查
+   - `tuiqiao-apply-task` 执行时：直接委派给相关技能执行具体任务
+3. **非固定匹配**：不预设固定技能对应关系，根据实际需求内容动态判断。
+4. **协同记录**：若调用了其他技能，在终端输出末尾简要说明（不写入模板文件）。
+
+## 输出约束
+
+1. 所有输出必须使用对应模板格式（见 `references/templates/`）。
+2. 必填字段缺失时停止执行并报错。
+3. 追加写入时必须保持格式一致。
+4. 禁止在模板外添加额外内容。
+
+## 先读哪些文件
+
+按顺序读取：
+
+1. `references/quickref.md` - 指令速查表（必读）
+2. `references/states.md` - 状态定义与转换（必读）
+3. 按指令读取：
+   - `tuiqiao-new` → `references/templates/template-new.md`
+   - `tuiqiao-plan` → `references/templates/template-plan.md`
+   - `tuiqiao-review` → `references/templates/template-review.md`
+   - `tuiqiao-auto-plan` → `references/templates/template-auto-plan.md`
+   - `tuiqiao-apply-task` → `references/templates/template-apply.md`
+   - `tuiqiao-apply` → `references/templates/template-apply-all.md`
+   - `tuiqiao-accept` → `references/templates/template-accept.md`
+
+## 全局流程
+
+1. 识别并校验快捷指令。
+2. 读取速查表确认所需文件。
+3. 读取对应模板确认输出格式。
+4. 若信息缺失，先提最多 3 个关键问题。
+5. 产出结构化结果（严格按模板格式）。
+6. 按规则落库并更新状态。
+7. 回显可执行下一步。
+
+## 快速职责映射
+
+| 指令 | 职责 |
+|------|------|
+| tuiqiao-new | 新建需求 + 澄清到可执行 |
+| tuiqiao-plan | 起草计划；若已有评审意见或验收失败意见，按修订分支重规划 |
+| tuiqiao-review | 挑剔评审计划；支持复评并检查闭环 |
+| tuiqiao-auto-plan | 自动迭代 plan-review 循环，直到评审通过 |
+| tuiqiao-apply-task | 执行单个 Task，强制校验前序已完成 |
+| tuiqiao-apply | 串行执行所有未完成 Task，每个 Task 在子 Agent 中执行 |
+| tuiqiao-accept | 最终验收，要求"Task 全完成 + 目标达成"双条件成立 |

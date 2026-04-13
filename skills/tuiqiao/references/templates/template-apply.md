@@ -1,4 +1,4 @@
-# 输出格式：alexis-apply-step
+# 输出格式：tuiqiao-apply-task
 
 ## 输出到
 
@@ -30,7 +30,7 @@
 - 依据：<验收条件核对结果>
 
 ## 下一步
-建议执行：alexis-apply-step RQ-xxx Task-YY
+建议执行：tuiqiao-apply-task RQ-xxx Task-YY
 ```
 
 ---

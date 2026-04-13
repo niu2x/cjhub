@@ -1,14 +1,14 @@
 # 模式 A/B：新建需求与起草方案
 
-## A. alexis-new
+## A. tuiqiao-new
 
-触发：`alexis-new <需求简述>`
+触发：`tuiqiao-new <需求简述>`
 
 ### 执行步骤
 
 1. 提炼需求名称（8-20 个中文字符，避免空泛词）。
 2. 生成 `requirement_id`（格式：RQ-YYYYMMDD-HHMMSS）。
-3. 创建需求目录 `./.alexis/requirements/<requirement_id>/`。
+3. 创建需求目录 `./.tuiqiao/requirements/<requirement_id>/`。
 4. 创建 8 个文件（见 `storage.md`）。
 5. 在 `index.json` 注册需求。
 6. 回显建档结果（ID、名称、路径）。
@@ -33,9 +33,9 @@
 
 ---
 
-## B. alexis-plan
+## B. tuiqiao-plan
 
-触发：`alexis-plan <需求ID> [补充约束]`
+触发：`tuiqiao-plan <需求ID> [补充约束]`
 
 ### 基础输入
 

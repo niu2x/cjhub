@@ -1,4 +1,4 @@
-# 输出格式：alexis-auto-plan
+# 输出格式：tuiqiao-auto-plan
 
 ## 执行流程
 
@@ -6,9 +6,9 @@
 2. 初始化迭代计数器 `iteration = 0`
 3. 循环执行（最大 5 次）：
    - `iteration++`
-   - 使用 Task 工具启动子 Agent 执行 `alexis-plan <需求ID>`
+   - 使用 Task 工具启动子 Agent 执行 `tuiqiao-plan <需求ID>`
    - 等待子 Agent 完成
-   - 使用 Task 工具启动子 Agent 执行 `alexis-review <需求ID>`
+   - 使用 Task 工具启动子 Agent 执行 `tuiqiao-review <需求ID>`
    - 等待子 Agent 完成
    - 读取 `plan_review.md` 获取评审结论
    - 若结论为"可执行"或"有条件可执行"，退出循环
@@ -22,7 +22,7 @@
 ### 成功收敛时
 
 ```markdown
-## alexis-auto-plan 完成 - YYYY-MM-DD HH:mm
+## tuiqiao-auto-plan 完成 - YYYY-MM-DD HH:mm
 
 ### 需求ID
 RQ-xxx
@@ -39,13 +39,13 @@ RQ-xxx
 - 方案文件：design.md
 
 ### 下一步
-建议执行：alexis-apply RQ-xxx
+建议执行：tuiqiao-apply RQ-xxx
 ```
 
 ### 达到最大迭代时
 
 ```markdown
-## alexis-auto-plan 未收敛 - YYYY-MM-DD HH:mm
+## tuiqiao-auto-plan 未收敛 - YYYY-MM-DD HH:mm
 
 ### 需求ID
 RQ-xxx
@@ -73,8 +73,8 @@ RQ-xxx
 **Plan 阶段**：
 ```
 Task(
-  description="执行 alexis-plan",
-  prompt="alexis-plan <需求ID>",
+  description="执行 tuiqiao-plan",
+  prompt="tuiqiao-plan <需求ID>",
   subagent_type="general"
 )
 ```
@@ -82,8 +82,8 @@ Task(
 **Review 阶段**：
 ```
 Task(
-  description="执行 alexis-review",
-  prompt="alexis-review <需求ID>",
+  description="执行 tuiqiao-review",
+  prompt="tuiqiao-review <需求ID>",
   subagent_type="general"
 )
 ```
@@ -110,7 +110,7 @@ Task(
 | 情况 | 处理方式 |
 |------|----------|
 | 子 Agent 执行失败 | 停止流程，输出失败原因 |
-| 需求未定义 | 停止并提示先执行 alexis-new |
+| 需求未定义 | 停止并提示先执行 tuiqiao-new |
 | 达到最大迭代次数 | 输出警告，保持当前状态（方案待修订），建议手动检查 |
 
 ---
