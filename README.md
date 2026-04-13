@@ -9,10 +9,11 @@
 
 ## 快速开始
 
-1. 复制模板目录：
+1. 创建技能目录与入口文件：
 
    ```bash
-   cp -r skills/_template skills/my-skill
+   mkdir -p skills/my-skill
+   touch skills/my-skill/SKILL.md
    ```
 
 2. 编辑 `skills/my-skill/SKILL.md`，写清楚：
