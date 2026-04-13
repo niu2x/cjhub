@@ -2,27 +2,37 @@
 
 ## 指令总览
 
-1. `alexis-new <需求简述>`
-2. `alexis-plan <需求ID> [补充约束]`
-3. `alexis-review <需求ID> [评审重点]`
-4. `alexis-apply-step <需求ID> <TaskID>`
-5. `alexis-accept <需求ID>`
+| 指令 | 作用 |
+|------|------|
+| `alexis-new <需求简述>` | 新建需求 |
+| `alexis-plan <需求ID> [补充约束]` | 起草/修订方案 |
+| `alexis-review <需求ID> [评审重点]` | 评审方案 |
+| `alexis-apply-step <需求ID> <TaskID>` | 执行单Task |
+| `alexis-accept <需求ID>` | 最终验收 |
 
-## 路由规则
-
-- 仅按快捷指令路由，不按自然语言猜测模式。
-- 参数缺失时停止执行，并返回用法示例。
-- 若用户只说“用 alexis”但未给指令，返回指令清单并要求重试。
+---
 
 ## 用法示例
 
-- `alexis-new 做一个会员积分到期提醒系统`
-- `alexis-plan RQ-20260412-101500 增加灰度发布约束`
-- `alexis-review RQ-20260412-101500 重点看回滚与监控`
-- `alexis-apply-step RQ-20260412-101500 Task-03`
-- `alexis-accept RQ-20260412-101500`
+```
+alexis-new 做一个会员积分到期提醒系统
+alexis-plan RQ-20260412-101500 增加灰度发布约束
+alexis-review RQ-20260412-101500 重点看回滚与监控
+alexis-apply-step RQ-20260412-101500 Task-03
+alexis-accept RQ-20260412-101500
+```
 
-## 非法输入响应模板
+---
+
+## 路由规则
+
+1. 仅按快捷指令路由，不按自然语言猜测模式。
+2. 参数缺失时停止执行，并返回用法示例。
+3. 若用户只说"用 alexis"但未给指令，返回指令清单并要求重试。
+
+---
+
+## 非法输入响应
 
 当输入不合法时，返回：
 
